@@ -1,193 +1,106 @@
-// script.js - interactive particle field, shock mode, contact form, smooth scroll
-(function() {
-  // ----- PARTICLE FIELD CANVAS -----
-  const canvas = document.getElementById('particle-field');
-  let ctx = canvas.getContext('2d');
-  let w, h;
-  let particlesArray = [];
+import * as THREE from 'three';
 
-  function resizeCanvas() {
-    w = window.innerWidth;
-    h = window.innerHeight;
-    canvas.width = w;
-    canvas.height = h;
-  }
+    // Elegant subtle 3D background
+    const canvas = document.getElementById('webgl-bg');
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
 
-  class DynamicParticle {
-    constructor() {
-      this.x = Math.random() * w;
-      this.y = Math.random() * h;
-      this.vx = (Math.random() - 0.5) * 0.45;
-      this.vy = (Math.random() - 0.5) * 0.25;
-      this.radius = Math.random() * 1.8 + 0.6;
-      this.alpha = Math.random() * 0.6 + 0.2;
-      this.hue = 170 + Math.random() * 50;
+    const scene = new THREE.Scene();
+    scene.background = null;
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 0, 14);
+
+    // Ambient + subtle lights
+    const ambient = new THREE.AmbientLight(0x1a1a2e);
+    scene.add(ambient);
+    const mainLight = new THREE.DirectionalLight(0xffffff, 0.5);
+    mainLight.position.set(1, 2, 3);
+    scene.add(mainLight);
+    const fillLight = new THREE.PointLight(0x8866ff, 0.3);
+    fillLight.position.set(-2, 1, 4);
+    scene.add(fillLight);
+
+    // Central elegant torus knot
+    const geometry = new THREE.TorusKnotGeometry(1.6, 0.35, 180, 24, 3, 4);
+    const material = new THREE.MeshStandardMaterial({ color: 0xa855f7, emissive: 0x331a66, roughness: 0.25, metalness: 0.7 });
+    const knot = new THREE.Mesh(geometry, material);
+    scene.add(knot);
+
+    // Particle ring
+    const particleCount = 1200;
+    const particlesGeo = new THREE.BufferGeometry();
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i++) {
+      const radius = 2.5 + Math.random() * 1.5;
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      positions[i*3] = radius * Math.sin(phi) * Math.cos(theta);
+      positions[i*3+1] = radius * Math.sin(phi) * Math.sin(theta) * 0.6;
+      positions[i*3+2] = radius * Math.cos(phi);
     }
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
-      if (this.x < 0) this.x = w;
-      if (this.x > w) this.x = 0;
-      if (this.y < 0) this.y = h;
-      if (this.y > h) this.y = 0;
-      this.alpha = 0.3 + Math.sin(Date.now() * 0.0012 * this.radius) * 0.2;
+    particlesGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const particleMat = new THREE.PointsMaterial({ color: 0xa880ff, size: 0.05, transparent: true, opacity: 0.4 });
+    const particles = new THREE.Points(particlesGeo, particleMat);
+    scene.add(particles);
+
+    let time = 0;
+    function animate() {
+      requestAnimationFrame(animate);
+      time += 0.006;
+      knot.rotation.x = time * 0.3;
+      knot.rotation.y = time * 0.5;
+      particles.rotation.y = time * 0.1;
+      particles.rotation.x = Math.sin(time * 0.2) * 0.1;
+      renderer.render(scene, camera);
     }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `hsla(${this.hue}, 85%, 65%, ${this.alpha})`;
-      ctx.shadowBlur = 4;
-      ctx.shadowColor = '#0ff';
-      ctx.fill();
-    }
-  }
+    animate();
 
-  function initParticles(count = 190) {
-    particlesArray = [];
-    for (let i = 0; i < count; i++) particlesArray.push(new DynamicParticle());
-  }
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
 
-  function animateParticles() {
-    if (!ctx) return;
-    ctx.clearRect(0, 0, w, h);
-    ctx.shadowBlur = 0;
-    for (let p of particlesArray) {
-      p.update();
-      p.draw();
-    }
-    requestAnimationFrame(animateParticles);
-  }
-
-  window.addEventListener('resize', () => {
-    resizeCanvas();
-    initParticles(200);
-  });
-  resizeCanvas();
-  initParticles(210);
-  animateParticles();
-
-  // ----- SHOCK MODE (GLITCH REALITY) -----
-  const shockBtn = document.getElementById('shockSurprise');
-  if (shockBtn) {
-    shockBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      // Flash effect
-      document.body.style.transition = '0.08s';
-      document.body.style.backgroundColor = '#0affd0';
-      document.body.style.color = '#000000';
-      setTimeout(() => {
-        document.body.style.backgroundColor = '';
-        document.body.style.color = '';
-      }, 180);
-      
-      // Glitch text on headings
-      const allHead = document.querySelectorAll('h1, .section-title, .card-supernova h3');
-      allHead.forEach(el => {
-        const original = el.innerText;
-        if (original.length > 2) {
-          const glitched = original.split('').map(c => Math.random() > 0.92 ? '⬚' : c).join('');
-          el.innerText = glitched;
-          setTimeout(() => { el.innerText = original; }, 200);
+    // Contact form handler
+    const form = document.getElementById('contactForm');
+    const statusDiv = document.getElementById('formStatus');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('contactName')?.value.trim();
+        const email = document.getElementById('contactEmail')?.value.trim();
+        const msg = document.getElementById('contactMsg')?.value.trim();
+        if (name && email && msg) {
+          statusDiv.innerHTML = '✓ Message sent successfully. I\'ll get back to you soon.';
+          statusDiv.style.color = '#a855f7';
+          form.reset();
+          setTimeout(() => statusDiv.innerHTML = '', 4000);
+        } else {
+          statusDiv.innerHTML = '✗ Please fill all fields.';
+          statusDiv.style.color = '#f87171';
         }
       });
-      
-      // Radial shockwave
-      const waveDiv = document.createElement('div');
-      waveDiv.style.position = 'fixed';
-      waveDiv.style.top = '50%';
-      waveDiv.style.left = '50%';
-      waveDiv.style.width = '20px';
-      waveDiv.style.height = '20px';
-      waveDiv.style.background = 'radial-gradient(circle, cyan, transparent)';
-      waveDiv.style.borderRadius = '50%';
-      waveDiv.style.transform = 'translate(-50%, -50%)';
-      waveDiv.style.pointerEvents = 'none';
-      waveDiv.style.zIndex = '9999';
-      document.body.appendChild(waveDiv);
-      let scaleVal = 1;
-      let intervalShock = setInterval(() => {
-        scaleVal += 32;
-        waveDiv.style.width = scaleVal + 'px';
-        waveDiv.style.height = scaleVal + 'px';
-        waveDiv.style.opacity = 1 - scaleVal / 750;
-        if (scaleVal > 700) {
-          clearInterval(intervalShock);
-          waveDiv.remove();
-        }
-      }, 16);
-    });
-  }
-
-  // ----- CONTACT FORM HANDLER -----
-  const sendWaveBtn = document.getElementById('submitWaveBtn');
-  const feedbackSpan = document.getElementById('messageFeedback');
-  if (sendWaveBtn) {
-    sendWaveBtn.addEventListener('click', () => {
-      const name = document.getElementById('userName')?.value.trim();
-      const email = document.getElementById('userMail')?.value.trim();
-      const msg = document.getElementById('userMsg')?.value.trim();
-      if (name && email && msg) {
-        feedbackSpan.innerHTML = `✨ Thanks ${name}, your quantum message reached Sailendra. He'll reply within 24h across dimensions. ✨`;
-        feedbackSpan.style.color = '#7affdd';
-        document.getElementById('userName').value = '';
-        document.getElementById('userMail').value = '';
-        document.getElementById('userMsg').value = '';
-      } else {
-        feedbackSpan.innerHTML = '⚠️ Please fill name, email & message to initiate hyperlink ⚠️';
-        feedbackSpan.style.color = '#ffbc7a';
-      }
-      setTimeout(() => {
-        if(feedbackSpan) setTimeout(() => feedbackSpan.style.opacity = '0.9', 1800);
-      }, 200);
-    });
-  }
-
-  // ----- SMOOTH SCROLL NAVIGATION -----
-  document.querySelectorAll('.quantum-dock a, .btn-neon').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href && href !== '#' && href.startsWith('#')) {
-        e.preventDefault();
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-    });
-  });
-
-  // ----- MOUSE TRAIL (micro-interaction) -----
-  let mouseTrailTimeout;
-  document.addEventListener('mousemove', (e) => {
-    // throttle trail a bit
-    if (mouseTrailTimeout) return;
-    mouseTrailTimeout = setTimeout(() => {
-      const dot = document.createElement('div');
-      dot.style.position = 'fixed';
-      dot.style.left = e.clientX + 'px';
-      dot.style.top = e.clientY + 'px';
-      dot.style.width = '5px';
-      dot.style.height = '5px';
-      dot.style.background = 'radial-gradient(ellipse, cyan, #0affaa)';
-      dot.style.borderRadius = '50%';
-      dot.style.pointerEvents = 'none';
-      dot.style.zIndex = '99999';
-      dot.style.filter = 'blur(1px)';
-      document.body.appendChild(dot);
-      setTimeout(() => dot.remove(), 100);
-      mouseTrailTimeout = null;
-    }, 20);
-  });
-
-  // subtle dynamic year update (optional)
-  const footer = document.querySelector('footer span');
-  if (footer) {
-    const currentYear = new Date().getFullYear();
-    if (!footer.innerText.includes('2025')) {
-      footer.innerText = footer.innerText.replace('2025', currentYear);
     }
-  }
-  
-  console.log('⚡ Sailendra Khatiwada Portfolio — Fully modular | Projects integrated: E‑comm, Dashboard, Blog, Music Player, TextUtils, MindCare, Personal details loaded');
-})();
+
+    // Download resume simulation
+    const downloadBtn = document.getElementById('downloadResume');
+    if (downloadBtn) {
+      downloadBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        alert('📄 Resume download: Sailendra_Khatiwada_Resume_2025.pdf (In production, link your actual PDF)');
+      });
+    }
+
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a, .logo, .btn-primary, .btn-outline').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href !== '#' && href.startsWith('#')) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const target = document.getElementById(targetId);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
