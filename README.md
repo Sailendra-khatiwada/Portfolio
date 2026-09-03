@@ -1,6 +1,6 @@
 # SAILENDRA KHATIWADA · DIGITAL ARCHITECT PORTFOLIO
 
-![Portfolio Preview](https://via.placeholder.com/1200x630?text=Sailendra+Khatiwada+Portfolio)
+![Portfolio Preview]
 
 A sophisticated, modern personal portfolio website showcasing the work and skills of Sailendra Khatiwada — a Backend Developer from Kathmandu, Nepal.
 
