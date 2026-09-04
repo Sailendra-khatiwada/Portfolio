@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sailendra Khatiwada | Creative Developer</title>
-    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta name="description" content="Sailendra Khatiwada — Backend developer and creative technologist from Nepal. Specializing in Django, PHP, Web Audio API, Figma prototypes, and futuristic web experiences. Explore e-commerce platforms, analytics dashboards, music visualizers, and MindCare wellness hub.">
   <meta name="keywords" content="Sailendra Khatiwada, full-stack developer Nepal, creative technologist, Django developer, PHP developer, Web Audio API, Figma designer, portfolio, e-commerce platform, analytics dashboard, personal blog, music player, TextUtils, MindCare, UI/UX, Abhilekh Kathmandu developer">
   <meta name="author" content="Sailendra Khatiwada">
@@ -94,415 +93,444 @@
     }]
   }
   </script>
-  
+
+    <!-- SEO Meta Data -->
+    <title>Sailendra Khatiwada | Creative Developer</title>
+    <meta name="description" content="Sailendra Khatiwada — Backend developer and creative technologist from Nepal. Specializing in Django, PHP, Web Audio API, Figma prototypes, and futuristic web experiences.">
+    <meta name="keywords" content="Sailendra Khatiwada, full-stack developer Nepal, creative technologist, Django developer, PHP developer, Web Audio API, Figma designer, portfolio, e-commerce platform, analytics dashboard, personal blog, music player, TextUtils, MindCare, UI/UX, Abhilekh Kathmandu developer">
+    <meta name="author" content="Sailendra Khatiwada">
+    <meta property="og:title" content="Sailendra Khatiwada | Backend Developer">
+    <meta property="og:description" content="Building impossible ecosystems & hyperfunctional interfaces. Based in Kathmandu, Nepal.">
+    <meta property="og:image" content="https://sailendrakhatiwada.com.np/og-preview.jpg">
+    <meta property="og:url" content="https://sailendrakhatiwada.com.np/">
+    <meta property="og:type" content="website">
     <link rel="canonical" href="https://sailendrakhatiwada.com.np/">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231a1a2e'/%3E%3Ctext x='50' y='70' font-size='55' text-anchor='middle' fill='%23e2e2f0' font-family='monospace'%3ESK%3C/text%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:60px; }
         
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 80px;
-        }
-
         :root {
-            --bg: #111111;
-            --bg-alt: #1a1a1a;
-            --text: #ffffff;
-            --muted: #999999;
-            --accent: #4f46e5;
-            --accent-light: #3730a3;
-            --border: rgba(255, 255, 255, 0.1);
+            --bg: #ffffff;
+            --sidebar-bg: #f4f4f4;
+            --ink: #000000;
+            --ink-dim: #555555;
+            --ink-muted: #888888;
+            --line: #e5e5e5;
+            --green: #16a34a;
+            --card-bg: #f9f9f9;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
-        body {
-            background: var(--bg);
-            color: var(--text);
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        body { background: var(--bg); color: var(--ink); font-family: var(--font-body); line-height: 1.6; overflow-x: hidden; cursor: none; }
 
-        #bg { position: fixed; inset: 0; z-index: -10; width: 100%; height: 100%; background: var(--bg); pointer-events: none; }
+        /* Custom Mouse Tracker */
+        .mouse-dot { position: fixed; width: 8px; height: 8px; background: var(--ink); border-radius: 50%; pointer-events: none; z-index: 99999; transform: translate(-50%, -50%); }
+        .mouse-ring { position: fixed; width: 36px; height: 36px; border: 1px solid var(--ink); border-radius: 50%; pointer-events: none; z-index: 99998; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s, background 0.2s, border-color 0.2s; }
+        .mouse-ring.hover { width: 60px; height: 60px; background: rgba(0,0,0,0.05); border-color: var(--ink-muted); }
 
-        .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; padding: 15px 50px; background: rgba(17, 17, 17, 0.82); border-bottom: 1px solid var(--border); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        .nav-inner { width: 100%; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; position: relative; }
-        .logo { color: var(--text); font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; text-decoration: none; position: relative; z-index: 2; }
-        .logo span { color: var(--accent); }
-        .nav-links { display: flex; align-items: center; gap: 30px; }
-        .nav-links a { position: relative; color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: color 0.3s ease; }
-        .nav-links a:hover { color: var(--text); }
-        .nav-links a::after { content: ""; position: absolute; left: 0; bottom: -5px; width: 0; height: 2px; background: var(--accent); transition: width 0.3s ease; }
-        .nav-links a:hover::after { width: 100%; }
+        /* Sidebar */
+        .sidebar { position: fixed; top: 0; left: 0; width: 280px; height: 100vh; background: var(--sidebar-bg); border-right: 1px solid var(--line); padding: 30px 25px; display: flex; flex-direction: column; z-index: 1000; overflow-y: auto; }
+        .sidebar-profile { text-align: center; margin-bottom: 25px; }
+        .sidebar-profile img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 2px solid #fff; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        .sidebar-profile .role { font-size: 0.85rem; color: var(--ink-dim); font-weight: 500; margin-bottom: 5px; }
+        .sidebar-profile .name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+        .sidebar-nav { margin-top: 20px; flex: 1; }
+        .sidebar-nav ul { list-style: none; }
+        .sidebar-nav li { margin-bottom: 12px; }
+        .sidebar-nav a { text-decoration: none; color: var(--ink-dim); font-size: 1rem; font-weight: 500; display: block; padding: 8px 0; position: relative; transition: color 0.3s, padding-left 0.3s; }
+        .sidebar-nav a:hover, .sidebar-nav a.active { color: var(--ink); padding-left: 10px; }
+        .sidebar-nav a.active::before { content: ""; position: absolute; left: -15px; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--ink); }
+        .sidebar-footer { margin-top: 30px; }
+        .sidebar-footer .footer-label { font-size: 0.75rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; border-bottom: 1px solid var(--line); padding-bottom: 5px; }
+        .sidebar-tools { display: flex; gap: 10px; flex-wrap: wrap; padding-bottom: 15px; }
+        .sidebar-tools i { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--line); color: var(--ink); font-style: normal; font-size: 0.8rem; font-weight: 600; }
 
-        .menu-toggle { display: none; width: 42px; height: 42px; align-items: center; justify-content: center; border: 1px solid var(--border); border-radius: 10px; background: rgba(17, 17, 17, 0.95); color: var(--text); font-size: 1.2rem; cursor: pointer; transition: border-color 0.3s ease, color 0.3s ease; }
-        .menu-toggle:hover { border-color: var(--accent); color: var(--accent); }
+        /* Main Content */
+        .main-content { margin-left: 280px; width: calc(100% - 280px); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 
-        .hero { width: 100%; min-height: 100vh; display: flex; align-items: center; padding: 120px 50px 60px; position: relative; z-index: 1; }
-        .hero-grid { width: 100%; max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px; }
-        .hero-text { position: relative; z-index: 5; }
-        .hero-badge { display: inline-block; padding: 6px 16px; margin-bottom: 20px; border-radius: 50px; background: var(--accent-light); color: #fff; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-        .hero h1 { margin-bottom: 20px; color: var(--text); font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5rem); font-weight: 700; line-height: 1.05; }
-        .hero h1 .accent { color: var(--accent); }
-        .hero-desc { max-width: 450px; margin-bottom: 30px; color: var(--muted); font-size: 1rem; line-height: 1.8; }
-        .hero-btns { display: flex; flex-wrap: wrap; gap: 15px; }
-        .btn-primary, .btn-outline { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 14px 30px; border-radius: 50px; text-decoration: none; font-weight: 600; transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; }
-        .btn-primary { border: 1px solid var(--accent); background: var(--accent); color: white; box-shadow: 0 5px 20px rgba(79, 70, 229, 0.2); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3); }
-        .btn-outline { border: 1px solid var(--border); background: transparent; color: var(--text); }
-        .btn-outline:hover { transform: translateY(-3px); border-color: var(--accent); color: var(--accent); }
+        /* Hero Section - NEW FIXES */
+        .hero { padding: 80px 0 60px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 20px; min-height: 100vh; position: relative; overflow: hidden; }
+        .hero-text { max-width: 550px; opacity: 0; transform: translateY(30px); animation: fadeInUp 0.8s forwards 0.2s; position: relative; z-index: 5; }
+        .hero-greeting { font-family: var(--font-body); font-size: 1.1rem; color: var(--ink-dim); margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+        
+        /* Small "Creative Developer" */
+        .hero-badge { display: inline-block; font-family: var(--font-body); font-size: 0.9rem; font-weight: 500; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px; }
+        
+        /* BIG "Sailendra Khatiwada" - Matches Section Headings */
+        .hero-title { font-family: var(--font-display); font-size: clamp(2.5rem, 6vw, 3.8rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.02em; text-transform: uppercase; margin-bottom: 30px; color: var(--ink); }
+        
+        .hero-subtitle { font-size: 1.15rem; font-family: var(--font-body); color: var(--ink); margin-bottom: 30px; max-width: 450px; line-height: 1.5; }
+        .hero-availability { display: flex; align-items: center; gap: 8px; font-size: 0.95rem; color: var(--ink); margin-bottom: 40px; }
+        .hero-availability::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity:1; } 50% { opacity:0.3; } }
 
-        .hero-3d { width: 100%; height: 580px; display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; }
-        #model-container { width: 100%; max-width: 600px; height: 100%; position: relative; background: transparent; cursor: grab; isolation: isolate; overflow: visible; }
-        #model-container:active { cursor: grabbing; }
-        #model-container::before { content: ""; position: absolute; left: 50%; top: 48%; width: 70%; height: 80%; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.30) 0%, rgba(79, 70, 229, 0.20) 25%, rgba(79, 70, 229, 0.11) 45%, rgba(79, 70, 229, 0.04) 65%, transparent 80%); filter: blur(25px); z-index: -2; pointer-events: none; }
-        #model-container::after { content: ""; position: absolute; left: 50%; bottom: 8%; width: 48%; height: 13%; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(ellipse, rgba(79, 70, 229, 0.32) 0%, rgba(79, 70, 229, 0.12) 45%, transparent 75%); filter: blur(22px); z-index: -1; pointer-events: none; }
-        #model-container canvas { display: block; width: 100% !important; height: 100% !important; position: relative; z-index: 1; }
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background: var(--ink); color: var(--bg); border: none; border-radius: 50px; padding: 16px 30px; font-family: var(--font-body); font-size: 1rem; font-weight: 500; text-decoration: none; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
 
-        .section { width: 100%; max-width: 1400px; margin: 0 auto; padding: 90px 50px; position: relative; z-index: 1; }
-        .section-title { margin-bottom: 50px; position: relative; color: var(--text); font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; }
-        .section-title .light { color: var(--muted); font-weight: 400; }
-        .section-title::after { content: ""; display: block; width: 60px; height: 3px; margin-top: 10px; border-radius: 50px; background: var(--accent); }
+        /* Passport Size 3D Wrapper */
+        .hero-3d-wrap { position: absolute; top: 0; right: -10%; width: 65%; height: 100%; z-index: 1; opacity: 0; animation: fadeIn 1.5s forwards 0.5s; display: flex; align-items: center; justify-content: center; background: transparent; border-left: none; pointer-events: auto; }
+        #hero-avatar { width: 100%; height: 100%; cursor: grab; position: relative; z-index: 2; }
+        #hero-avatar:active { cursor: grabbing; }
+        #hero-avatar canvas { width: 100% !important; height: 100% !important; display: block; background: transparent !important; }
 
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .about-image-frame { width: 100%; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid var(--border); border-radius: 20px; background: var(--bg-alt); }
-        .about-image-frame img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.5s ease; }
-        .about-image-frame:hover img { transform: scale(1.05); }
-        .about-text p { margin-bottom: 15px; color: var(--muted); font-size: 0.95rem; line-height: 1.8; }
-        .info-list { list-style: none; margin-top: 20px; padding: 30px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 20px; }
-        .info-list li { padding: 12px 0; border-bottom: 1px solid var(--border); color: var(--text); font-size: 0.9rem; transition: padding-left 0.3s ease; }
-        .info-list li:last-child { border-bottom: none; }
-        .info-list li:hover { padding-left: 8px; color: var(--accent); }
+        /* The Background Shadow */
+        .avatar-shadow { position: absolute; top: 50%; left: 50%; width: 70%; height: 80%; transform: translate(-50%, -50%); background: radial-gradient(circle at center, rgba(0,0,0,0.14) 0%, rgba(0,0,0,0.045) 42%, transparent 72%); filter: blur(40px); z-index: 1; pointer-events: none; }
 
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 15px; }
-        .skill-item { padding: 12px 24px; border: 1px solid var(--border); border-radius: 50px; background: var(--bg-alt); color: var(--text); font-size: 0.9rem; font-weight: 500; transition: transform 0.3s ease, border-color 0.3s ease, color 0.3s ease; }
-        .skill-item:hover { transform: translateY(-5px); border-color: var(--accent); color: var(--accent); }
+        @keyframes fadeInUp { to { opacity:1; transform: translateY(0); } }
+        @keyframes fadeIn { to { opacity:1; } }
 
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .project-card { padding: 35px; background: var(--bg-alt); border: 1px solid var(--border); border-radius: 20px; transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease; }
-        .project-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3); }
-        .project-icon { display: inline-block; margin-bottom: 20px; font-size: 2.5rem; }
-        .project-card h3 { margin-bottom: 10px; font-size: 1.2rem; }
-        .project-tech { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
-        .project-tech span { padding: 4px 10px; border: 1px solid transparent; border-radius: 20px; background: rgba(79, 70, 229, 0.2); color: var(--accent); font-size: 0.7rem; }
-        .project-card p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+        /* Scroll Reveal */
+        .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* Sections Common */
+        .section { padding: 70px 0; border-bottom: 1px solid var(--line); position: relative; overflow: hidden; }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px; }
+        .section-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; color: var(--ink); margin: 0; }
+        .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: var(--bg); color: var(--ink); border: 1px solid var(--ink); border-radius: 50px; padding: 12px 24px; font-size: 0.9rem; font-weight: 500; text-decoration: none; cursor: pointer; transition: all 0.3s; }
+        .btn-outline:hover { background: var(--ink); color: var(--bg); }
+
+        /* About Section */
+        .about-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: center; max-width: 900px; margin: 0 auto; }
+        .about-image { position: relative; }
+        .about-image img { width: 100%; max-width: 300px; height: 360px; object-fit: cover; object-position: center; border-radius: 20px; display: block; box-shadow: 0 18px 45px rgba(0,0,0,0.16), 0 5px 15px rgba(0,0,0,0.08); transition: transform 0.4s ease, box-shadow 0.4s ease; }
+        .about-image:hover img { transform: translateY(-5px); box-shadow: 0 25px 55px rgba(0,0,0,0.18), 0 8px 20px rgba(0,0,0,0.08); }
+        .about-image::after { content: ""; position: absolute; top: 10%; right: -10%; width: 80%; height: 80%; border-radius: 20px; background: var(--card-bg); z-index: -1; }
+        .about-content { text-align: left; }
+        .about-label { font-family: var(--font-body); font-size: 1rem; color: var(--ink-dim); margin-bottom: 20px; }
+        .about-text { font-family: var(--font-display); font-size: clamp(1.2rem, 2.5vw, 1.8rem); line-height: 1.3; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 30px; }
+        .about-stats { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+        .about-stats .number { font-family: var(--font-display); font-size: 4.5rem; font-weight: 700; line-height: 1; color: var(--ink); }
+        .about-stats .text { max-width: 250px; font-family: var(--font-body); font-size: 0.95rem; color: var(--ink-dim); line-height: 1.5; }
+
+        /* Expertise Cards */
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .exp-card { background: var(--card-bg); border-radius: 16px; padding: 25px; display: flex; flex-direction: column; align-items: flex-start; min-height: 320px; position: relative; transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+        .exp-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .exp-card .icon { font-size: 2rem; margin-bottom: 15px; }
+        .exp-card h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; letter-spacing: -0.02em; }
+        .exp-card .exp-image { margin-top: auto; border-radius: 8px; overflow: hidden; width: 100%; height: 180px; background: #ddd; }
+        .exp-card .exp-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .exp-card:hover .exp-image img { transform: scale(1.1); }
+
+        /* Featured Work */
+        .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .work-card { overflow: hidden; border-radius: 12px; background: var(--card-bg); padding: 15px; transition: transform 0.3s; cursor: pointer; border: 1px solid var(--line); }
+        .work-card:hover { transform: translateY(-5px); }
+        .work-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; transition: transform 0.5s; }
+        .work-card:hover img { transform: scale(1.02); }
+        .work-card .work-title { font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; color: var(--ink); }
+        .work-card p { margin-top: 5px; color: var(--ink-dim); font-family: var(--font-body); font-size: 0.8rem; }
+
+        /* Resume */
         .resume-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-        .resume-block h3 { margin-bottom: 30px; color: var(--accent); font-size: 1.2rem; }
-        .timeline-item { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid var(--accent-light); position: relative; }
-        .timeline-item::before { content: ""; position: absolute; top: 0; left: -6px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
-        .year { margin-bottom: 5px; color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
-        .timeline-item h4 { margin-bottom: 5px; font-size: 1rem; }
-        .timeline-item p { color: var(--muted); font-size: 0.85rem; }
+        .resume-block h3 { margin-bottom: 30px; font-family: var(--font-display); color: var(--ink); font-size: 1.4rem; font-weight: 600; }
+        .timeline-item { margin-bottom: 30px; padding-left: 20px; border-left: 2px solid var(--line); position: relative; }
+        .timeline-item::before { content: ""; position: absolute; top: 0; left: -6px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
+        .year { margin-bottom: 5px; color: var(--ink-muted); font-family: var(--font-body); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; }
+        .timeline-item h4 { font-family: var(--font-display); font-size: 1.05rem; font-weight: 600; margin-bottom: 5px; }
+        .timeline-item p { color: var(--ink-dim); font-family: var(--font-body); font-size: 0.9rem; }
 
-        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 20px; }
-        .contact-card { padding: 30px; border: 1px solid var(--border); border-radius: 16px; background: var(--bg-alt); color: var(--text); text-align: center; text-decoration: none; transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
-        .contact-card:hover { transform: translateY(-5px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
-        .contact-icon { display: block; margin-bottom: 15px; font-size: 2rem; }
-        .contact-card h4 { margin-bottom: 5px; font-size: 1.1rem; }
-        .contact-card p { color: var(--muted); font-size: 0.9rem; word-break: break-word; }
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+        .contact-tile { display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--card-bg); border: 1px solid var(--line); border-radius: 16px; padding: 30px; text-decoration: none; color: var(--ink); transition: all 0.3s; }
+        .contact-tile:hover { background: var(--ink); color: var(--bg); transform: translateY(-5px); }
+        .contact-tile .icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .contact-tile .label { font-family: var(--font-body); font-weight: 600; margin-bottom: 5px; }
+        .contact-tile .value { font-family: var(--font-body); font-size: 0.85rem; color: var(--ink-muted); word-break: break-all; text-align: center; }
+        .contact-tile:hover .value { color: var(--bg); opacity: 0.8; }
 
-        footer { padding: 40px 50px; border-top: 1px solid var(--border); background: var(--bg); position: relative; z-index: 1; text-align: center; }
-        footer p { color: var(--muted); font-size: 0.85rem; }
+        /* Footer */
+        .site-footer { padding: 60px 0 30px; border-top: 1px solid var(--line); position: relative; overflow: hidden; }
+        .footer-content { max-width: 900px; margin: 0 auto; text-align: center; position: relative; z-index: 1; }
+        .footer-nav { display: flex; justify-content: center; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+        .footer-nav a { color: var(--ink); text-decoration: none; font-family: var(--font-body); font-size: 1rem; font-weight: 500; }
+        .footer-nav a.active, .footer-nav a:hover { font-weight: 700; text-decoration: underline; }
+        .footer-watermark { font-family: var(--font-display); font-size: clamp(3rem, 12vw, 8rem); font-weight: 700; text-transform: uppercase; color: rgba(0,0,0,0.05); line-height: 1; text-align: center; margin-bottom: 30px; pointer-events: none; user-select: none; }
+        .footer-meta { display: flex; justify-content: space-between; align-items: center; font-family: var(--font-body); font-size: 0.85rem; color: var(--ink-muted); padding-top: 20px; border-top: 1px solid var(--line); }
+        .footer-meta a { color: var(--ink-dim); text-decoration: none; margin-left: 10px; }
 
-        .back-to-top {
-            position: fixed;
-            right: 22px;
-            bottom: 22px;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            background: var(--accent);
-            color: #fff;
-            font-size: 1.35rem;
-            font-weight: 800;
-            line-height: 1;
-            text-decoration: none;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-            z-index: 2000;
-            transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.3s ease, visibility 0.3s ease;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-        }
-
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        @media (pointer: fine) {
-            body { cursor: none; }
-            .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; z-index: 99999; pointer-events: none; border-radius: 50%; transform: translate(-50%, -50%); }
-            .cursor-dot { width: 8px; height: 8px; background-color: #fff; }
-            .cursor-ring { width: 36px; height: 36px; border: 2px solid #4f46e5; transition: all 0.2s ease-out; }
-            .cursor-ring.hover { width: 60px; height: 60px; background-color: rgba(79, 70, 229, 0.2); border-color: #fff; }
-        }
-
-        @media (max-width: 1100px) {
-            .nav { padding-left: 30px; padding-right: 30px; }
-            .hero { padding-left: 30px; padding-right: 30px; }
-            .hero-grid { gap: 25px; }
-            .hero-3d { height: 520px; }
-            .section { padding-left: 30px; padding-right: 30px; }
-            footer { padding-left: 30px; padding-right: 30px; }
-        }
-
+        /* Responsive */
         @media (max-width: 900px) {
-            .nav { padding: 12px 20px; }
-            .menu-toggle { display: flex; }
-            .nav-links { display: none; position: absolute; top: calc(100% + 8px); left: 0; right: 0; padding: 8px; flex-direction: column; align-items: stretch; gap: 0; border: 1px solid var(--border); border-radius: 14px; background: rgba(17, 17, 17, 0.98); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); }
-            .nav-links.open { display: flex; }
-            .nav-links a { padding: 13px 12px; border-radius: 10px; }
-            .nav-links a:hover { background: rgba(255, 255, 255, 0.04); }
-            .nav-links a::after { display: none; }
-            .hero { min-height: auto; padding: 90px 20px 50px; }
-            .hero-grid { grid-template-columns: 1fr; gap: 0; text-align: center; }
-            .hero-3d { order: 1; width: 100%; height: 440px; margin: 0 auto; }
-            #model-container { width: 100%; max-width: 500px; height: 100%; margin: 0 auto; }
-            .hero-text { order: 2; width: 100%; }
-            .hero-desc { margin: 0 auto 25px; }
-            .hero-btns { justify-content: center; }
-            .about-grid, .resume-wrapper { grid-template-columns: 1fr; }
-            .section { padding: 65px 20px; }
+            body { cursor: auto; }
+            .mouse-dot, .mouse-ring { display: none; }
+            .sidebar { position: fixed; top: 0; left: 0; width: 100%; height: 60px; padding: 10px 20px; flex-direction: row; align-items: center; justify-content: center; background: var(--bg); border-bottom: 1px solid var(--line); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+            .sidebar-profile, .sidebar-footer { display: none; }
+            .sidebar-nav { margin-top: 0; width: 100%; }
+            .sidebar-nav ul { display: flex; gap: 20px; overflow-x: auto; white-space: nowrap; justify-content: center; width: 100%; scrollbar-width: none; }
+            .sidebar-nav ul::-webkit-scrollbar { display: none; }
+            .sidebar-nav li { margin-bottom: 0; }
+            .sidebar-nav a { text-align: center; padding: 8px 0; }
+            .sidebar-nav a.active::before { display: none; }
+            .main-content { margin-left: 0; width: 100%; padding-top: 60px; }
+            .hero { grid-template-columns: 1fr; text-align: center; padding-top: 20px; gap: 20px; }
+            .hero-text { max-width: 100%; }
+            .hero-greeting, .hero-availability { justify-content: center; }
+            .hero-3d-wrap { order: -1; position: relative; width: 100%; height: 350px; right: -80px; border-left: none; border-bottom: none; background: transparent; }
+            .about-grid { grid-template-columns: 1fr; text-align: center; }
+            .about-image { margin: 0 auto; width: min(100%, 300px); }
+            .about-image img { width: 100%; height: 340px; object-fit: cover; }
+            .about-content { text-align: center; }
+            .about-stats { justify-content: center; }
+            .work-grid { grid-template-columns: 1fr; }
+            .resume-wrapper { grid-template-columns: 1fr; gap: 30px; }
+            .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
         }
-
         @media (max-width: 600px) {
-            .logo { font-size: 1.5rem; }
-            .hero { padding: 82px 16px 45px; }
-            .hero-3d { height: 355px; margin-bottom: 5px; }
-            #model-container { max-width: 390px; }
-            #model-container::before { width: 78%; height: 82%; filter: blur(20px); background: radial-gradient(ellipse at center, rgba(79, 70, 229, 0.28) 0%, rgba(79, 70, 229, 0.17) 28%, rgba(79, 70, 229, 0.08) 52%, transparent 80%); }
-            #model-container::after { width: 50%; height: 13%; }
-            .hero-badge { margin-bottom: 15px; padding: 6px 13px; font-size: 0.68rem; }
-            .hero h1 { margin-bottom: 14px; font-size: clamp(2.5rem, 13vw, 3.5rem); line-height: 1.05; }
-            .hero-desc { padding: 0 5px; font-size: 0.91rem; line-height: 1.65; }
-            .hero-btns { width: min(320px, 100%); margin: 0 auto; flex-direction: column; gap: 12px; }
-            .btn-primary, .btn-outline { width: 100%; }
-            .section { padding: 55px 16px; }
-            .section-title { margin-bottom: 30px; }
-            .projects-grid, .contact-grid { grid-template-columns: 1fr; }
-            .project-card { padding: 26px; }
-            .info-list { padding: 20px; }
-            .skills-grid { gap: 10px; }
-            .skill-item { padding: 10px 16px; font-size: 0.82rem; }
-            footer { padding: 30px 16px; }
-            .back-to-top { right: 15px; bottom: 15px; width: 44px; height: 44px; }
-        }
-
-        @media (max-width: 380px) {
-            .hero-3d { height: 325px; }
-            #model-container { max-width: 350px; }
-            .hero h1 { font-size: 2.35rem; }
-            .hero-desc { font-size: 0.88rem; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+            .container { padding: 0 20px; }
+            .expertise-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-3d-wrap { height: 300px; }
+            .about-image img { height: 340px; }
+            .sidebar-nav ul { gap: 18px; justify-content: flex-start; }
+            .sidebar-nav a { font-size: 0.9rem; }
         }
     </style>
 </head>
 <body>
 
-    <canvas id="bg"></canvas>
-    <div class="cursor-dot"></div>
-    <div class="cursor-ring"></div>
+    <!-- Custom Mouse -->
+    <div class="mouse-dot"></div>
+    <div class="mouse-ring"></div>
 
-    <nav class="nav">
-        <div class="nav-inner">
-            <a href="#home" class="logo">सैलेन्द्र (Sailendra)<span>.</span></a>
-            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-            <div class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Work</a>
-                <a href="#resume">Resume</a>
-                <a href="#contact">Contact</a>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-profile">
+            <img src="about.jpg" alt="Sailendra Khatiwada">
+            <div class="role">Backend Developer</div>
+            <div class="name">Sailendra<br>Khatiwada</div>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About me</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#work">Featured Work</a></li>
+                <li><a href="#journey">Resume</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="footer-label">Tools I Use</div>
+            <div class="sidebar-tools">
+                <i>Py</i><i>P</i><i>JS</i><i>M</i><i>G</i>
+            </div>
+            <div class="footer-label">Connect With</div>
+            <div class="sidebar-connect">
+                <a href="mailto:khatiwadask931@gmail.com" style="font-size:0.85rem; color:var(--ink-dim); word-break:break-all; text-decoration:none;">khatiwadask931@gmail.com</a>
             </div>
         </div>
-    </nav>
+    </aside>
 
-    <section class="hero" id="home">
-        <div class="hero-grid">
+    <!-- Main Content -->
+    <main class="main-content">
+        
+        <!-- Hero Section (New Font & Size) -->
+        <section id="home" class="hero container">
+            <div class="hero-3d-wrap">
+                <div class="avatar-shadow"></div>
+                <div id="hero-avatar"></div>
+            </div>
             <div class="hero-text">
                 <div class="hero-badge">✦ Creative Developer</div>
                 <h1>Sailendra<br><span class="accent">Khatiwada</span></h1>
-                <p class="hero-desc">Full-stack architect crafting sophisticated digital ecosystems. I blend functional intelligence with elegant design.</p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn-primary">View Work</a>
-                    <a href="#about" class="btn-outline">About Me</a>
+                <p class="hero-subtitle">Full-stack architect crafting sophisticated digital ecosystems. I blend functional intelligence with elegant design.</p>
+                
+                <p class="hero-availability">Available for new projects</p>
+                <a href="#contact" class="btn-primary">View Work ↗</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image reveal">
+                        <img src="about.jpg" alt="Sailendra Khatiwada">
+                    </div>
+                    <div class="about-content reveal">
+                        <p class="about-label">● About</p>
+                        <p class="about-text">I'm a creative coder &amp; Backend Developer based in Kathmandu, Nepal. Over the past 2+ years, I've engineered digital products that blend functional intelligence with elegant design.</p>
+                        <div class="about-stats">
+                            <div class="number" data-target="10">0</div>
+                            <div class="text">Production apps developed including e-commerce, inventory and analytics systems.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-3d">
-                <div id="model-container"></div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section" id="about">
-        <h2 class="section-title">About <span class="light">Me</span></h2>
-        <div class="about-grid">
-            <div class="about-image-frame">
-                <img src="about.jpg" alt="Sailendra Khatiwada" loading="lazy">
-            </div>
-            <div>
-                <div class="about-text">
-                    <p>I'm a creative coder &amp; Backend Developer based in <strong>Kathmandu, Nepal</strong>. Over the past 2+ years, I've engineered digital products that blend functional intelligence with elegant design.</p>
-                    <p>My approach combines technical depth with aesthetic sensitivity from e-commerce, inventory billing ecosystems to mental health platforms like MindCare, आभिLekh.</p>
+        <!-- Expertise Section -->
+        <section id="expertise" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Core Expertise</h2>
+                    <a href="#work" class="btn-outline">Explore More ↗</a>
                 </div>
-                <ul class="info-list">
-                    <li><strong>📍 Location:</strong> Kathmandu, Nepal</li>
-                    <li><strong>🎓 Education:</strong> BCA · AI Enthusiast</li>
-                    <li><strong>💡 Philosophy:</strong> Clean code, meaningful design</li>
-                    <li><strong>📧 Email:</strong> khatiwadask931@gmail.com</li>
-                    <li><strong>🐙 GitHub:</strong> Sailendra-khatiwada</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="skills">
-        <h2 class="section-title">Technical <span class="light">Arsenal</span></h2>
-        <div class="skills-grid">
-            <span class="skill-item">Python / Django</span>
-            <span class="skill-item">PHP / Laravel</span>
-            <span class="skill-item">MySQL</span>
-            <span class="skill-item">JavaScript / ES6</span>
-            <span class="skill-item">Three.js / WebGL</span>
-            <span class="skill-item">Web Audio API</span>
-            <span class="skill-item">Figma / UI/UX</span>
-            <span class="skill-item">REST APIs</span>
-            <span class="skill-item">FastAPI</span>
-            <span class="skill-item">Tailwind / GSAP</span>
-            <span class="skill-item">Git / GitHub</span>
-        </div>
-    </section>
-
-    <section class="section" id="projects">
-        <h2 class="section-title">Selected <span class="light">Projects</span></h2>
-        <div class="projects-grid">
-            <article class="project-card">
-                <div class="project-icon">🛒</div>
-                <h3>E-commerce Platform</h3>
-                <div class="project-tech"><span>Django</span><span>Stripe</span><span>JS</span></div>
-                <p>Full-stack marketplace with AI recommendations, real inventory, and optimized checkout flow.</p>
-            </article>
-            <article class="project-card">
-                <div class="project-icon">📊</div>
-                <h3>Analytics Dashboard</h3>
-                <div class="project-tech"><span>Figma</span><span>Chart.js</span><span>React</span></div>
-                <p>High-fidelity dashboard with realtime KPI visualization and predictive analytics.</p>
-            </article>
-            <article class="project-card">
-                <div class="project-icon">📝</div>
-                <h3>Personal Blog</h3>
-                <div class="project-tech"><span>Django</span><span>Markdown</span></div>
-                <p>SEO-optimized blog engine with comment system and dynamic content management.</p>
-            </article>
-            <article class="project-card">
-                <div class="project-icon">📜</div>
-                <h3>अभिLekh</h3>
-                <div class="project-tech"><span>PHP</span><span>Laravel</span><span>MySQL</span></div>
-                <p>Inventory and Billing software. A robust system for tracking stock, managing invoices, and generating detailed reports.</p>
-            </article>
-            <article class="project-card">
-                <div class="project-icon">🎵</div>
-                <h3>Music Player · Waveform</h3>
-                <div class="project-tech"><span>Web Audio API</span><span>CSS</span></div>
-                <p>Spectral audio visualizer with real-time frequency analysis and custom EQ.</p>
-            </article>
-            <article class="project-card">
-                <div class="project-icon">🧠</div>
-                <h3>MindCare · Wellness Hub</h3>
-                <div class="project-tech"><span>PHP</span><span>Tailwind</span></div>
-                <p>Empathetic platform for mood tracking and anonymous community support.</p>
-            </article>
-        </div>
-    </section>
-
-    <section class="section" id="resume">
-        <h2 class="section-title">Professional <span class="light">Journey</span></h2>
-        <div class="resume-wrapper">
-            <div class="resume-block">
-                <h3>Education</h3>
-                <div class="timeline-item">
-                    <div class="year">2022 – Present</div>
-                    <h4>Bachelor in Computer Application</h4>
-                    <p>Morgan International College</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="year">2020 – 2022</div>
-                    <h4>+2 Computer Science</h4>
-                    <p>Viswa Niketan Secondary School</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="year">2011 – 2020</div>
-                    <h4>SEE</h4>
-                    <p>Shree Mahendra Secondary School</p>
+                <div class="expertise-grid">
+                    <div class="exp-card reveal">
+                        <div class="icon">🛒</div>
+                        <h3>Backend Systems</h3>
+                        <div class="exp-image"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=600&q=80" alt="Backend"></div>
+                    </div>
+                    <div class="exp-card reveal" style="transition-delay: 100ms;">
+                        <div class="icon">🎨</div>
+                        <h3>Creative Dev</h3>
+                        <div class="exp-image"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=600&q=80" alt="Creative"></div>
+                    </div>
+                    <div class="exp-card reveal" style="transition-delay: 200ms;">
+                        <div class="icon">📊</div>
+                        <h3>Data Systems</h3>
+                        <div class="exp-image"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Data"></div>
+                    </div>
                 </div>
             </div>
-            <div class="resume-block">
-                <h3>Experience</h3>
-                <div class="timeline-item">
-                    <div class="year">2022 – Present</div>
-                    <h4>Backend Developer</h4>
-                    <p>Freelance · Developed 10+ production apps including e-commerce</p>
+        </section>
+
+        <!-- Featured Work Section -->
+        <section id="work" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Featured Work</h2>
                 </div>
-                <div class="timeline-item">
-                    <div class="year">2021 – 2022</div>
-                    <h4>UI/UX &amp; Designer</h4>
-                    <p>Mind Care · Prototyping, design systems, responsive animations.</p>
+                <div class="work-grid">
+                    <div class="work-card reveal">
+                        <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=600&q=80" alt="Ecommerce">
+                        <div class="work-title">E-commerce Platform</div>
+                        <p>Django, Stripe, JS</p>
+                    </div>
+                    <div class="work-card reveal" style="transition-delay: 100ms;">
+                        <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=600&q=80" alt="अभिLekh">
+                        <div class="work-title">अभिLekh</div>
+                        <p>PHP, Laravel, MySQL</p>
+                    </div>
+                    <div class="work-card reveal" style="transition-delay: 200ms;">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" alt="Music">
+                        <div class="work-title">Music Player</div>
+                        <p>Web Audio API, CSS</p>
+                    </div>
+                    <div class="work-card reveal" style="transition-delay: 300ms;">
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80" alt="Analytics">
+                        <div class="work-title">Analytics Dashboard</div>
+                        <p>Figma, Chart.js, React</p>
+                    </div>
+                    <div class="work-card reveal" style="transition-delay: 400ms;">
+                        <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=600&q=80" alt="Blog">
+                        <div class="work-title">Personal Blog</div>
+                        <p>Django, Markdown</p>
+                    </div>
+                    <div class="work-card reveal" style="transition-delay: 500ms;">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="MindCare">
+                        <div class="work-title">MindCare</div>
+                        <p>PHP, Tailwind</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="section" id="contact">
-        <h2 class="section-title">Get In <span class="light">Touch</span></h2>
-        <div class="contact-grid">
-            <a href="https://www.linkedin.com/in/sailendra-khatiwada-915254269/" target="_blank" rel="noopener noreferrer" class="contact-card">
-                <span class="contact-icon">💼</span>
-                <h4>LinkedIn</h4>
-                <p>Connect professionally</p>
-            </a>
-            <a href="https://www.facebook.com/Sailendra.Khatiwada.29" target="_blank" rel="noopener noreferrer" class="contact-card">
-                <span class="contact-icon">📘</span>
-                <h4>Facebook</h4>
-                <p>Follow me</p>
-            </a>
-            <a href="mailto:khatiwadask931@gmail.com" class="contact-card">
-                <span class="contact-icon">📧</span>
-                <h4>Email</h4>
-                <p>khatiwadask931@gmail.com</p>
-            </a>
-            <a href="tel:+9779769761449" class="contact-card">
-                <span class="contact-icon">📞</span>
-                <h4>Phone</h4>
-                <p>+977-9769761449</p>
-            </a>
-        </div>
-    </section>
+        <!-- Resume Section (Education & Experience) -->
+        <section id="journey" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Resume</h2>
+                </div>
+                
+                <div class="resume-wrapper">
+                    <div class="resume-block reveal">
+                        <h3>Education</h3>
+                        <div class="timeline-item">
+                            <div class="year">2022 – Present</div>
+                            <h4>Bachelor in Computer Application</h4>
+                            <p>Morgan International College</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2020 – 2022</div>
+                            <h4>+2 Computer Science</h4>
+                            <p>Viswa Niketan Secondary School</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2011 – 2020</div>
+                            <h4>SEE</h4>
+                            <p>Shree Mahendra Secondary School</p>
+                        </div>
+                    </div>
 
-    <footer>
-        <p>© 2026 Sailendra Khatiwada — Built with precision and care</p>
-    </footer>
+                    <div class="resume-block reveal" style="transition-delay: 100ms;">
+                        <h3>Experience</h3>
+                        <div class="timeline-item">
+                            <div class="year">2022 – Present</div>
+                            <h4>Backend Developer</h4>
+                            <p>Freelance · Developed 10+ production apps including e-commerce</p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="year">2021 – 2022</div>
+                            <h4>UI/UX &amp; Designer</h4>
+                            <p>Mind Care · Prototyping, design systems, responsive animations.</p>
+                        </div>
+                    </div>
+                </div>
 
-    <a href="#home" class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</a>
+            </div>
+        </section>
 
+        <!-- Contact Section -->
+        <section id="contact" class="section" style="border-bottom:none;">
+            <div class="container">
+                <div class="section-header reveal">
+                    <h2 class="section-title">Get In Touch</h2>
+                </div>
+                <div class="contact-grid">
+                    <a href="mailto:khatiwadask931@gmail.com" class="contact-tile reveal">
+                        <div class="icon">📧</div>
+                        <div class="label">Email</div>
+                        <div class="value">khatiwadask931@gmail.com</div>
+                    </a>
+                    <a href="tel:+9779769761449" class="contact-tile reveal" style="transition-delay: 100ms;">
+                        <div class="icon">📞</div>
+                        <div class="label">Phone</div>
+                        <div class="value">+977 976-976-1449</div>
+                    </a>
+                    <a href="https://www.linkedin.com/in/sailendra-khatiwada-915254269/" target="_blank" class="contact-tile reveal" style="transition-delay: 200ms;">
+                        <div class="icon">💼</div>
+                        <div class="label">LinkedIn</div>
+                        <div class="value">sailendra-khatiwada</div>
+                    </a>
+                    <a href="https://www.facebook.com/Sailendra.Khatiwada.29" target="_blank" class="contact-tile reveal" style="transition-delay: 300ms;">
+                        <div class="icon">📘</div>
+                        <div class="label">Facebook</div>
+                        <div class="value">Sailendra Khatiwada</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            <div class="container footer-content">
+                <div class="footer-nav">
+                    <a href="#home" class="active">Home</a>
+                    <a href="#about">About me</a>
+                    <a href="#expertise">Expertise</a>
+                    <a href="#work">Featured Work</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-watermark">SAILENDRA</div>
+                <div class="footer-meta">
+                    <div>© 2026 Sailendra Khatiwada. All rights reserved.</div>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Three.js / GLTF Loader for 3D Avatar -->
     <script type="importmap">
     { "imports": { "three": "https://unpkg.com/three@0.160.0/build/three.module.js", "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/" } }
     </script>
@@ -512,213 +540,180 @@
         import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
         import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
-        const bgCanvas = document.getElementById("bg");
-        const bgRenderer = new THREE.WebGLRenderer({ canvas: bgCanvas, alpha: true, antialias: true });
-        bgRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        bgRenderer.setSize(window.innerWidth, window.innerHeight);
+        const container = document.getElementById("hero-avatar");
+        const width = container.clientWidth;
+        const height = container.clientHeight;
 
-        const bgScene = new THREE.Scene();
-        const bgCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        bgCamera.position.z = 8;
+        const scene = new THREE.Scene();
+        scene.background = null;
+        const camera = new THREE.PerspectiveCamera(17, width / height, 1, 100);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setClearColor(0x000000, 0);
+        container.appendChild(renderer.domElement);
 
-        const particlesGeometry = new THREE.BufferGeometry();
-        const particleVertices = [];
-        for (let i = 0; i < 1500; i++) {
-            particleVertices.push((Math.random() - 0.5) * 30);
-            particleVertices.push((Math.random() - 0.5) * 30);
-            particleVertices.push((Math.random() - 0.5) * 30);
-        }
-        particlesGeometry.setAttribute("position", new THREE.Float32BufferAttribute(particleVertices, 3));
-        const particlesMaterial = new THREE.PointsMaterial({ color: 0x4f46e5, size: 0.05, transparent: true, opacity: 0.45 });
-        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-        bgScene.add(particles);
+        // Lights
+        const ambient = new THREE.AmbientLight(0xffffff, 1.5);
+        scene.add(ambient);
+        const key = new THREE.DirectionalLight(0xffffff, 2);
+        key.position.set(5, 10, 7);
+        scene.add(key);
+        const fill = new THREE.DirectionalLight(0xffffff, 0.5);
+        fill.position.set(-5, 0, 5);
+        scene.add(fill);
 
-        function animateBackground() {
-            requestAnimationFrame(animateBackground);
-            particles.rotation.y += 0.001;
-            bgRenderer.render(bgScene, bgCamera);
-        }
-        animateBackground();
-
-        function resizeBackground() {
-            bgCamera.aspect = window.innerWidth / window.innerHeight;
-            bgCamera.updateProjectionMatrix();
-            bgRenderer.setSize(window.innerWidth, window.innerHeight);
-        }
-
-        const container = document.getElementById("model-container");
-        const avatarScene = new THREE.Scene();
-        const avatarCamera = new THREE.PerspectiveCamera(40, 1, 0.01, 100);
-        const avatarRenderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-        avatarRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-        avatarRenderer.outputColorSpace = THREE.SRGBColorSpace;
-        avatarRenderer.setClearColor(0x000000, 0);
-        container.appendChild(avatarRenderer.domElement);
-
-        const ambientLight = new THREE.AmbientLight(0xffffff, 1.4);
-        avatarScene.add(ambientLight);
-        const keyLight = new THREE.DirectionalLight(0xffffff, 2);
-        keyLight.position.set(5, 10, 8);
-        avatarScene.add(keyLight);
-        const fillLight = new THREE.DirectionalLight(0x4f46e5, 1.2);
-        fillLight.position.set(-5, 2, 5);
-        avatarScene.add(fillLight);
-        const rimLight = new THREE.DirectionalLight(0xffffff, 1);
-        rimLight.position.set(-2, 6, -5);
-        avatarScene.add(rimLight);
-
-        const controls = new OrbitControls(avatarCamera, avatarRenderer.domElement);
+        // Controls
+        const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
-        controls.dampingFactor = 0.06;
+        controls.dampingFactor = 0.05;
         controls.enablePan = false;
         controls.enableZoom = false;
-        controls.minPolarAngle = THREE.MathUtils.degToRad(65);
-        controls.maxPolarAngle = THREE.MathUtils.degToRad(105);
-        controls.target.set(0, 0, 0);
 
-        let avatarModel = null;
-        let mixer = null;
-
-        function fitAvatar() {
-            if (!avatarModel) return;
-            const sourceBox = new THREE.Box3().setFromObject(avatarModel);
-            const sourceSize = sourceBox.getSize(new THREE.Vector3());
-            let targetHeight;
-            if (window.innerWidth <= 380) targetHeight = 2.35;
-            else if (window.innerWidth <= 600) targetHeight = 2.55;
-            else if (window.innerWidth <= 900) targetHeight = 2.9;
-            else targetHeight = 3.15;
-            const modelHeight = Math.max(sourceSize.y, 0.001);
-            const scale = targetHeight / modelHeight;
-            avatarModel.scale.setScalar(scale);
-            const scaledBox = new THREE.Box3().setFromObject(avatarModel);
-            const scaledSize = scaledBox.getSize(new THREE.Vector3());
-            const scaledCenter = scaledBox.getCenter(new THREE.Vector3());
-            avatarModel.position.x -= scaledCenter.x;
-            avatarModel.position.y -= scaledCenter.y;
-            avatarModel.position.z -= scaledCenter.z;
-            const verticalFov = THREE.MathUtils.degToRad(avatarCamera.fov);
-            const verticalDistance = (scaledSize.y / 2) / Math.tan(verticalFov / 2);
-            const margin = window.innerWidth <= 600 ? 1.30 : 1.18;
-            const distance = verticalDistance * margin;
-            const cameraY = window.innerWidth <= 600 ? 0.04 : 0.07;
-            avatarCamera.position.set(0, cameraY, distance);
-            avatarCamera.lookAt(0, 0, 0);
-            avatarCamera.updateProjectionMatrix();
-            controls.target.set(0, 0, 0);
-            controls.update();
-        }
-
+        // Load Model
         const loader = new GLTFLoader();
-        loader.load("avatar.glb", function (gltf) {
-            avatarModel = gltf.scene;
-            avatarModel.traverse(function (child) {
-                if (child.isMesh) {
-                    child.frustumCulled = false;
-                    child.castShadow = false;
-                    child.receiveShadow = false;
-                    if (child.material) child.material.needsUpdate = true;
-                }
-            });
-            avatarScene.add(avatarModel);
-            fitAvatar();
+        loader.load('avatar.glb', function (gltf) {
+            const model = gltf.scene;
+            
+            // Center
+            const box = new THREE.Box3().setFromObject(model);
+            const size = box.getSize(new THREE.Vector3());
+            const center = box.getCenter(new THREE.Vector3());
+            model.position.x -= center.x;
+            model.position.y -= center.y;
+            model.position.z -= center.z;
+            
+            // Scale Passport Size
+            const targetHeight = 4.2; 
+            const scale = targetHeight / size.y;
+            model.scale.setScalar(scale);
+            
+            // Recenter
+            const box2 = new THREE.Box3().setFromObject(model);
+            const center2 = box2.getCenter(new THREE.Vector3());
+            model.position.sub(center2);
+            
+            scene.add(model);
+
+            // Camera positioning (Passport style)
+            camera.position.set(0, 1.2, 6); 
+            camera.lookAt(0.5, 1.5, 0);
+            controls.target.set(0.2, 1.5, 0);
+            controls.update();
+            
+            // Animate
             if (gltf.animations && gltf.animations.length > 0) {
-                mixer = new THREE.AnimationMixer(avatarModel);
+                const mixer = new THREE.AnimationMixer(model);
                 mixer.clipAction(gltf.animations[0]).play();
+                const clock = new THREE.Clock();
+                function animateMixer() {
+                    requestAnimationFrame(animateMixer);
+                    mixer.update(clock.getDelta());
+                }
+                animateMixer();
             }
         }, undefined, function (error) {
-            console.error("Unable to load avatar.glb:", error);
-            const geometry = new THREE.CapsuleGeometry(0.5, 1.5, 8, 16);
-            const material = new THREE.MeshStandardMaterial({ color: 0x4f46e5, roughness: 0.65, metalness: 0.1 });
-            avatarModel = new THREE.Mesh(geometry, material);
-            avatarScene.add(avatarModel);
-            fitAvatar();
+            console.error("Error loading model", error);
+            const cube = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), new THREE.MeshStandardMaterial({ color: 0x111111, wireframe: true }));
+            scene.add(cube);
         });
 
-        function resizeAvatar() {
-            const width = Math.max(container.clientWidth, 1);
-            const height = Math.max(container.clientHeight, 1);
-            avatarCamera.aspect = width / height;
-            avatarCamera.updateProjectionMatrix();
-            avatarRenderer.setSize(width, height, false);
-            if (avatarModel) fitAvatar();
-        }
-        resizeAvatar();
-
-        const clock = new THREE.Clock();
-        function animateAvatar() {
-            requestAnimationFrame(animateAvatar);
-            const delta = clock.getDelta();
-            if (mixer) mixer.update(delta);
+        // Render Loop
+        function animate() {
+            requestAnimationFrame(animate);
             controls.update();
-            avatarRenderer.render(avatarScene, avatarCamera);
+            renderer.render(scene, camera);
         }
-        animateAvatar();
+        animate();
 
-        window.addEventListener("resize", function () {
-            resizeBackground();
-            resizeAvatar();
+        // Resize
+        window.addEventListener('resize', () => {
+            const w = container.clientWidth;
+            const h = container.clientHeight;
+            camera.aspect = w / h;
+            camera.updateProjectionMatrix();
+            renderer.setSize(w, h);
         });
     </script>
 
+    <!-- General Animations & Mouse Tracker -->
     <script>
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
-
-        function closeMenu() {
-            navLinks.classList.remove("open");
-            menuToggle.setAttribute("aria-expanded", "false");
-            menuToggle.setAttribute("aria-label", "Open navigation");
-            menuToggle.textContent = "☰";
-        }
-
-        menuToggle.addEventListener("click", function () {
-            const isOpen = navLinks.classList.toggle("open");
-            menuToggle.setAttribute("aria-expanded", String(isOpen));
-            menuToggle.textContent = isOpen ? "✕" : "☰";
-        });
-
-        navLinks.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", closeMenu);
-        });
-
-        window.addEventListener("resize", function () {
-            if (window.innerWidth > 900) closeMenu();
-        });
-
-        const backToTop = document.getElementById("backToTop");
+        // Custom Mouse Tracker
+        const dot = document.querySelector('.mouse-dot');
+        const ring = document.querySelector('.mouse-ring');
+        const hoverElements = document.querySelectorAll('a, button, .exp-card, .work-card');
         
-        window.addEventListener("scroll", function() {
-            if (window.scrollY > 400) {
-                backToTop.classList.add("show");
-            } else {
-                backToTop.classList.remove("show");
-            }
-        });
-
-        backToTop.addEventListener("click", function (event) {
-            event.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-
-        const dot = document.querySelector(".cursor-dot");
-        const ring = document.querySelector(".cursor-ring");
-        const hoverElements = document.querySelectorAll("a, button, .skill-item, .project-card");
-
-        if (dot && ring) {
-            window.addEventListener("mousemove", (e) => {
-                dot.style.left = `${e.clientX}px`;
-                dot.style.top = `${e.clientY}px`;
+        if (window.matchMedia("(pointer: fine)").matches) {
+            window.addEventListener('mousemove', (e) => {
+                dot.style.left = e.clientX + 'px';
+                dot.style.top = e.clientY + 'px';
                 setTimeout(() => {
-                    ring.style.left = `${e.clientX}px`;
-                    ring.style.top = `${e.clientY}px`;
+                    ring.style.left = e.clientX + 'px';
+                    ring.style.top = e.clientY + 'px';
                 }, 50);
             });
+            
             hoverElements.forEach(el => {
-                el.addEventListener("mouseenter", () => ring.classList.add("hover"));
-                el.addEventListener("mouseleave", () => ring.classList.remove("hover"));
+                el.addEventListener('mouseenter', () => ring.classList.add('hover'));
+                el.addEventListener('mouseleave', () => ring.classList.remove('hover'));
             });
         }
+
+        // Active Nav Link on Scroll
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".sidebar-nav a");
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 60) {
+                    current = section.getAttribute("id");
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").substring(1) === current) {
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        // Scroll Reveal Animations
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Number Count Up Animation
+        const numbers = document.querySelectorAll('.number');
+        const numberObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / 50;
+                    const updateNumber = () => {
+                        current += increment;
+                        if (current < target) {
+                            el.textContent = Math.floor(current) + '+';
+                            requestAnimationFrame(updateNumber);
+                        } else {
+                            el.textContent = target + '+';
+                        }
+                    };
+                    updateNumber();
+                    numberObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        numbers.forEach(num => numberObserver.observe(num));
     </script>
 </body>
 </html>
